@@ -1,0 +1,38 @@
+/* filepath: c:\Users\simme\Desktop\Academic\job_search\BMC_ran_ziv\shopping-cart\src\app\modules\products\products.component.scss */
+.product-container {
+  h3 {
+    margin-bottom: 20px;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    .product {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: calc(33.333% - 20px);
+      box-sizing: border-box;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      h4 {
+        margin: 10px 0;
+      }
+      p {
+        color: #333;
+      }
+      button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+          background-color: #218838;
+        }
+      }
+    }
+  }
+}
