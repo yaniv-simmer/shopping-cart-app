@@ -11,8 +11,8 @@
           <i class="icon-cart"></i> Cart
         </a>
       </li>
-      <li class="user-info">
-        <span>Johanna Doe</span>
+      <li class="user-info" *ngIf="userName">
+        <span>{{ userName }}</span>
         <button (click)="logout()">Logout</button>
       </li>
     </ul>

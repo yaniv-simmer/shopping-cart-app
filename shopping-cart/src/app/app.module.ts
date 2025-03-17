@@ -9,6 +9,7 @@ import { AppPageComponent } from './pages/app-page/app-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { ProductService } from './core/services/product.service';
 import { CartService } from './core/services/cart.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [ProductService, CartService],

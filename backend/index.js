@@ -21,14 +21,15 @@ app.get('/getProducts', (req, res) => {
   res.json(products);
 });
 
-// Optional: Simple register and login endpoints
+// Simple register
 app.post('/register', (req, res) => {
-  // Registration logic (e.g., store in-memory or in a file)
-  res.json({ message: 'User registered' });
+  // Registration logic here
+  res.json({ message: 'User registered successfully' });
 });
 
+// Simple login
 app.post('/login', (req, res) => {
-  // Login logic
+  // Login logic here
   res.json({ message: 'Login successful' });
 });
 

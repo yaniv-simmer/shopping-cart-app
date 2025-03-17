@@ -1,8 +1,8 @@
-/* filepath: c:\Users\simme\Desktop\Academic\job_search\BMC_ran_ziv\shopping-cart\src\app\shared\components\header\header.component.scss */
 header {
   background-color: #333;
   color: #fff;
   padding: 10px 20px;
+  font-family: 'Arial', sans-serif;
   nav {
     display: flex;
     justify-content: space-between;
@@ -22,6 +22,7 @@ header {
           }
         }
         .user-info {
+          margin-left: auto; //TODO: fix this ! its still on the left
           display: flex;
           align-items: center;
           span {
