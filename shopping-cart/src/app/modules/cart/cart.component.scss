@@ -1,0 +1,51 @@
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* Align items to the left */
+}
+
+.cart-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+}
+
+.cart-item img {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cart-item h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.cart-item .price {
+  color: #28a745;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.cart-item .remove-from-cart {
+  background: #dc3545;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+
+.cart-item .remove-from-cart:hover {
+  background: #c82333;
+}//TODO: implement the styles with .cart-item

@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
     return value && !/[A-Z]/.test(value) ? { noCapital: true } : null;
   }
 
-  // Custom validator: Check if password and confirm password match.
+  // Custom validator: Check if password and confirm password match. //TODO: 
   passwordsMatchValidator(group: AbstractControl) {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;

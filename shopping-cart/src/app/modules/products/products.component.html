@@ -1,11 +1,8 @@
-<div class="product-container">
-  <h3>{{ products.length }} PRODUCT FOUND</h3>
-  <div class="grid">
-    <div class="product" *ngFor="let product of products">
-      <img [src]="product.image" alt="{{ product.name }}" />
-      <h4>{{ product.name }}</h4>
-      <p>£{{ product.price }}</p>
-      <button (click)="addToCart(product)">Add</button>
-    </div>
+<div class="products-container">
+  <div class="product-card" *ngFor="let product of products">
+    <img [src]="product.image" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <div class="price">{{ product.price | currency}}</div>
+    <button class="add-to-cart" (click)="addToCart(product)">Add</button>
   </div>
 </div>
