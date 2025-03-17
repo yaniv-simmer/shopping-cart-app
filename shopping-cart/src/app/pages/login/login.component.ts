@@ -25,7 +25,7 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
     if (this.authService.login(email, password)) {
       // Navigate to the protected application page
-      this.router.navigate(['/app']);
+      this.router.navigate(['/app/products']);
     } else {
       this.errorMessage = 'Invalid email or password';
     }
