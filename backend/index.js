@@ -3,36 +3,38 @@ const csv = require('csv-parser');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
-const morgan = require('morgan'); // Import morgan
+const morgan = require('morgan');
 const app = express();
+
 const PORT = 3000;
+const PRODUCTS_CSV_PATH = 'data/products.csv';
+const MSG_PRODUCTS_LOADED = 'Products loaded successfully';
+
 
 app.use(cors());
 app.use(express.json());
-app.use(morgan('dev')); // Use morgan to log requests
+app.use(morgan('dev')); 
 app.use('/assets', express.static(path.join(__dirname, 'data/assets')));
 
-// users map to store registered users
 let users = new Map();
 let products = [];
 
-fs.createReadStream('data/products.csv')
+fs.createReadStream(PRODUCTS_CSV_PATH)
   .pipe(csv())
   .on('data', (row) => {
     row.imageUrl = `http://localhost:${PORT}/assets/${row.image}`;
     products.push(row);
   })
   .on('end', () => {
-    console.log('CSV file successfully processed');
+    console.log(MSG_PRODUCTS_LOADED);
   });
 
-// GET API to return products
 app.get('/getProducts', (req, res) => {
   res.json(products);
 });
 
-// Simple register
 app.post('/register', (req, res) => {
+  //TODO: Implement JWT
   let newUserEmail = req.body.email;
   let newUserPassword = req.body.password;
 
@@ -43,7 +45,6 @@ app.post('/register', (req, res) => {
   res.json({ message: 'User registered successfully' });
 });
 
-// Simple login
 app.post('/login', (req, res) => {
   let userEmail = req.body.email;
   let userPassword = req.body.password;
