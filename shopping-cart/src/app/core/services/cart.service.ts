@@ -6,7 +6,6 @@ export class CartService {
   private cartItems: any[] = [];
 
   constructor() {
-    // Load existing cart from localStorage if available
     const savedCart = localStorage.getItem(this.cartKey);
     if (savedCart) {
       this.cartItems = JSON.parse(savedCart);
@@ -18,6 +17,7 @@ export class CartService {
   }
 
   addToCart(product: any): void {
+    //TODO: Check if the product is already in the cart, if so, increase the quantity
     this.cartItems.push(product);
     this.updateLocalStorage();
   }

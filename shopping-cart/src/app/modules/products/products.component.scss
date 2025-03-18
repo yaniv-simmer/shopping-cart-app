@@ -1,8 +1,15 @@
 .products-container {
+  background: #cacaca;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start; /* Align items to the left */
+}
+
+.product-count {
+  font-size: 14px;
+  color: rgb(44, 44, 44);
+  margin-bottom: 10px;
 }
 
 .product-card {

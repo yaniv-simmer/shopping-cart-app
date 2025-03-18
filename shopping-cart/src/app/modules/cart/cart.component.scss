@@ -49,3 +49,17 @@
 .cart-item .remove-from-cart:hover {
   background: #c82333;
 }//TODO: implement the styles with .cart-item
+
+
+.clear-cart {
+  background: #fd109e;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+  margin-top: 20px;
+}

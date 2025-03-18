@@ -1,3 +1,5 @@
+<h3 style="font-family: Arial;">Your Cart</h3>
+<div *ngIf="cartItems.length === 0">Your cart is empty</div>
 <div class="cart-container">
   <div class="cart-item" *ngFor="let item of cartItems; let i = index">
     <img [src]="item.imageUrl" alt="{{ item.name }}">
@@ -5,5 +7,5 @@
     <div class="price">{{ item.price | currency }}</div>
     <button class="remove-from-cart" (click)="removeFromCart(i)">Remove</button>
   </div>
-  <button (click)="clearCart()">Clear Cart</button>
 </div>
+<button class="clear-cart" (click)="clearCart()">Clear Cart</button>

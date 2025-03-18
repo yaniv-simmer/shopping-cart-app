@@ -19,6 +19,10 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/login`, { email, password });
   }
 
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('loggedInUser');
+  }
+
   logout() {
     localStorage.removeItem('loggedInUser');
   }
