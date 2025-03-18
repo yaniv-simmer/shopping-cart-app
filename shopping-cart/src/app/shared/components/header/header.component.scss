@@ -50,3 +50,31 @@ a.active {
   padding: 5px; /* Optional: Add some padding for better appearance */
   border-radius: 3px; /* Optional: Add some border radius for rounded corners */
 }
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .user-info {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 10px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+}
