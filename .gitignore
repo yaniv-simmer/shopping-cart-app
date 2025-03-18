@@ -181,3 +181,8 @@ Thumbs.db
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+
+# Playwright Test
+/shopping-cart/e2e/test-results
+/shopping-cart/test-results/*
