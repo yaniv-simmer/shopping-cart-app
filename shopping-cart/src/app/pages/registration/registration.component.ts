@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +12,7 @@ export class RegistrationComponent implements OnInit {
   registrationForm!: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
@@ -21,13 +22,11 @@ export class RegistrationComponent implements OnInit {
     }, { validator: this.passwordsMatchValidator });
   }
 
-  // Custom validator: Check if password contains at least one uppercase letter.
   passwordValidator(control: AbstractControl) {
     const value = control.value;
     return value && !/[A-Z]/.test(value) ? { noCapital: true } : null;
   }
 
-  // Custom validator: Check if password and confirm password match. //TODO: 
   passwordsMatchValidator(group: AbstractControl) {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
@@ -38,17 +37,13 @@ export class RegistrationComponent implements OnInit {
     if (this.registrationForm.invalid) return;
 
     const { email, password } = this.registrationForm.value;
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-
-    if (users.find((user: any) => user.email === email)) {
-      this.errorMessage = 'User already exists';
-      return;
-    }
-
-    users.push({ email, password });
-    localStorage.setItem('users', JSON.stringify(users));
-
-    // Navigate to login page after successful registration.
-    this.router.navigate(['/login']);
+    this.authService.register(email, password).subscribe(
+      () => {
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        this.errorMessage = error.error.message;
+      }
+    );
   }
 }

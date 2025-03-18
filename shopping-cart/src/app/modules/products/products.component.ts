@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../core/services/product.service';
 import { CartService } from '../../core/services/cart.service';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -20,5 +19,6 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product);  }
+    this.cartService.addToCart(product);
+  }
 }

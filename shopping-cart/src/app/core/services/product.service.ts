@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private products = [
-    { name: 'Product 1', price: 10.99, image: 'assets/product2.png' },
-    { name: 'Product 2', price: 19.99, image: 'assets/product1.png' }
-  ];
+  private baseUrl = 'http://localhost:3000';
+
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<any[]> {
-    return of(this.products);
-  }
-
-  addToCart(product: any) {
-    this.products.push(product);
+    return this.http.get<any[]>(`${this.baseUrl}/getProducts`);
   }
 }

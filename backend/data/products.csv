@@ -1,3 +1,10 @@
-name,price,image
-Product1,29.99,https://via.placeholder.com/150
-Product2,49.99,https://via.placeholder.com/150
+id,name,price,image
+1,Austinhat,9.99,austin_hat.png
+2,Ferrari hat,14.99,ferrari_hat.png
+3,McLaren,29.99,McLaren.png
+4,Melbourne hat,12.99,melbourne_hat.png
+5,Montreal hat,12.99,montreal_hat.png
+6,NYC hat,10.99,NYC_hat.png
+7,Race shanghai,25.99,race_shanghai.png
+8,Redbul hat,19.99,redbul_hat.png
+9,Rome hat,16.99,rome_hat.png

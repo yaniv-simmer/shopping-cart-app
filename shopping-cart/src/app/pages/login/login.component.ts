@@ -23,11 +23,14 @@ export class LoginComponent {
     if (this.loginForm.invalid) return;
 
     const { email, password } = this.loginForm.value;
-    if (this.authService.login(email, password)) {
-      // Navigate to the protected application page
-      this.router.navigate(['/app/products']);
-    } else {
-      this.errorMessage = 'Invalid email or password';
-    }
+    this.authService.login(email, password).subscribe(
+      () => {
+        localStorage.setItem('loggedInUser', JSON.stringify({ email }));
+        this.router.navigate(['/app/products']);
+      },
+      (error) => {
+        this.errorMessage = error.error.message;
+      }
+    );
   }
 }
