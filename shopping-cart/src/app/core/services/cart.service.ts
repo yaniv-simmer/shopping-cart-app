@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Product } from '../../modules/product.model';
 
 @Injectable()
 export class CartService {
   private cartKey = 'shoppingCart';
-  private cartItems: any[] = [];
+  private cartItems: Product[] = [];
 
   constructor() {
     const savedCart = localStorage.getItem(this.cartKey);
@@ -12,11 +13,11 @@ export class CartService {
     }
   }
 
-  getCartItems(): any[] {
+  getCartItems(): Product[] {
     return this.cartItems;
   }
 
-  addToCart(product: any): void {
+  addToCart(product: Product): void {
     //TODO: Check if the product is already in the cart, if so, increase the quantity
     this.cartItems.push(product);
     this.updateLocalStorage();
