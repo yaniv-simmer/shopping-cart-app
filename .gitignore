@@ -186,3 +186,4 @@ Thumbs.db
 # Playwright Test
 /shopping-cart/e2e/test-results
 /shopping-cart/test-results/*
+/shopping-cart/e2e/playwright-report/
