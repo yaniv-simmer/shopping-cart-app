@@ -22,7 +22,7 @@ header {
           }
         }
         .user-info {
-          margin-left: auto; //TODO: fix this ! its still on the left
+          margin-left: auto;
           display: flex;
           align-items: center;
           span {
@@ -44,11 +44,11 @@ header {
 }
 
 a.active {
-  color: #fff; /* Change text color to white for better contrast */
-  background-color: #00f; /* Blue background to indicate it was clicked */
+  color: #fff; 
+  background-color: #00f; 
   font-weight: bold;
-  padding: 5px; /* Optional: Add some padding for better appearance */
-  border-radius: 3px; /* Optional: Add some border radius for rounded corners */
+  padding: 5px; 
+  border-radius: 3px; 
 }
 
 .header-nav {
