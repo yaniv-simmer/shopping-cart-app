@@ -19,6 +19,7 @@ app.use('/assets', express.static(path.join(__dirname, 'data/assets')));
 let users = new Map();
 let products = [];
 
+// Load products from CSV file
 fs.createReadStream(PRODUCTS_CSV_PATH)
   .pipe(csv())
   .on('data', (row) => {
@@ -29,10 +30,36 @@ fs.createReadStream(PRODUCTS_CSV_PATH)
     console.log(MSG_PRODUCTS_LOADED);
   });
 
+/**
+ * Route to get the list of products.
+ * 
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response containing an array of products
+ * @example
+ * // Example response
+ * [
+ *   {
+ *     "id": "1",
+ *     "name": "Product 1",
+ *     "price": "10.00",
+ *     "imageUrl": "http://localhost:3000/assets/product1.jpg"
+ *   },
+ *   ...
+ * ]
+ */
 app.get('/getProducts', (req, res) => {
   res.json(products);
 });
 
+/**
+ * Route to register a new user.
+ *
+ * @param {Object} req - Express request object
+ * @param {string} req.body.email - New user's email
+ * @param {string} req.body.password - New user's password
+ * @returns {Object} res - JSON response with a success or error message
+ */
 app.post('/register', (req, res) => {
   //TODO: Implement JWT
   let newUserEmail = req.body.email;
@@ -45,6 +72,14 @@ app.post('/register', (req, res) => {
   res.json({ message: 'User registered successfully' });
 });
 
+/**
+ * Route to login a user.
+ * 
+ * @param {Object} req - Express request object
+ * @param {string} req.body.email - User's email
+ * @param {string} req.body.password - User's password
+ * @returns {Object} res - JSON response with a success or error message
+ */
 app.post('/login', (req, res) => {
   let userEmail = req.body.email;
   let userPassword = req.body.password;
