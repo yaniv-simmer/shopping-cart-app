@@ -36,7 +36,7 @@ test('User Flow', async ({ page }) => {
   await page.fill('input[formControlName="email"]', email);
   await page.fill('input[formControlName="password"]', password);
   await page.click('button[type="submit"]');
-  await expect(page).toHaveURL(URL + '/app/await page.locator('div').filter({ hasText: /^Ferrari hat\$14\.99Add$/ }).getByRole('button').click();products');
+  await expect(page).toHaveURL(URL + '/app/products');
 
   await page.click('a[routerLink="/app/cart"]');
   await expect(page.locator('.product-card')).toHaveCount(1);
