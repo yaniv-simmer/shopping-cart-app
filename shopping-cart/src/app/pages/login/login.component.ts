@@ -24,8 +24,7 @@ export class LoginComponent {
 
     const { email, password } = this.loginForm.value;
     this.authService.login(email, password).subscribe(
-      () => {
-        localStorage.setItem('loggedInUser', JSON.stringify({ email }));
+      () => {       
         this.router.navigate(['/app/products']);
       },
       (error) => {

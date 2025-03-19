@@ -1,0 +1,10 @@
+<div class="products-container">
+    <div class="product-card" *ngFor="let product of products; let i = index">
+        <img [src]="product.imageUrl" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+        <div class="price">{{ product.price | currency }}</div>
+        <button *ngIf="buttonType === 'add'" class="add-to-cart" (click)="onBtnClick(product, i)">Add</button>
+        <button *ngIf="buttonType === 'remove'" class="remove-from-cart"
+            (click)="onBtnClick(product, i)">Remove</button>
+    </div>
+</div>
